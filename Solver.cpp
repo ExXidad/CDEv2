@@ -150,7 +150,7 @@ Solver::uWavePlusHalf(double (Solver::*TVDLimiterFunction)(const int &), const i
 	if (c >= 0)
 		return uf(i) + (1 - CN) / 2 * (this->*TVDLimiterFunction)(i);
 	else
-		return uf(i) - (1 - CN) / 2 * (this->*TVDLimiterFunction)(i + 1);
+		return uf(i + 1) - (1 - CN) / 2 * (this->*TVDLimiterFunction)(i + 1);
 }
 
 
