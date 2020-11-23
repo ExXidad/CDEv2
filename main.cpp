@@ -24,8 +24,8 @@ int main()
 	// Bounding rectangle x-dimensions [xmin,xmax], y-dimensions [0,tMax]
 	BoundingRect boundingRect(-10, 10, 0, 10);
 
-	Solver solver(boundingRect, 0.05, -1, 0.1, 0.1);
-	solver.solve(ICF2, MINMOD);
+	Solver solver(boundingRect, 0.05, 1, 0.1, 0.1);
+	solver.solve(ICF2, MC);
 
 	solver.save("data");
 	return 0;

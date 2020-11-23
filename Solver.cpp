@@ -121,7 +121,7 @@ void Solver::exportData(std::fstream &file)
 	{
 		for (int i = 0; i < NX; ++i)
 		{
-			file << u[j][i] << "\t";
+			file << j * dt << "\t" << boundingRect->getSize()[0][0] + i * h << "\t" << u[j][i] << "\t";
 		}
 		file << std::endl;
 	}
@@ -150,7 +150,7 @@ Solver::uWavePlusHalf(double (Solver::*TVDLimiterFunction)(const int &), const i
 	if (c >= 0)
 		return uf(i) + (1 - CN) / 2 * (this->*TVDLimiterFunction)(i);
 	else
-		return uf(i + 1) - (1 - CN) / 2 * (this->*TVDLimiterFunction)(i + 1);
+		return uf(i) - (1 - CN) / 2 * (this->*TVDLimiterFunction)(i + 1);
 }
 
 
