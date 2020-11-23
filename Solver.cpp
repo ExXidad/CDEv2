@@ -121,9 +121,8 @@ void Solver::exportData(std::fstream &file)
 	{
 		for (int i = 0; i < NX; ++i)
 		{
-			file << j * dt << "\t" << boundingRect->getSize()[0][0] + i * h << "\t" << u[j][i] << "\t";
+			file << j * dt << "\t" << boundingRect->getSize()[0][0] + i * h << "\t" << u[j][i] << "\t" << std::endl;;
 		}
-		file << std::endl;
 	}
 }
 
