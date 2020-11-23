@@ -58,7 +58,7 @@ double Solver::iToX(const int &i)
 
 double Solver::jToY(const int &j)
 {
-	return boundingRect->getSize()[1][1] - (j * dt);
+	return (j * dt*saveTStep);//boundingRect->getSize()[1][1] -
 }
 
 void Solver::solve(double(&ICF)(const double &, const double &), const TVDLimitersTypes &type)
@@ -131,7 +131,7 @@ void Solver::save()
 	std::fstream file;
 	for (int j = 0; j < NT; ++j)
 	{
-		file.open(std::to_string(j*dt), std::ios::out);
+		file.open(std::to_string(jToY(j)), std::ios::out);
 		for (int i = 0; i < NX; ++i)
 		{
 			file << boundingRect->getSize()[0][0] + i * h << "\t" << u[j][i] << "\t" << std::endl;;
