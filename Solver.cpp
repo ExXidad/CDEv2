@@ -126,12 +126,18 @@ void Solver::exportData(std::fstream &file)
 	}
 }
 
-void Solver::save(const std::string &name)
+void Solver::save()
 {
 	std::fstream file;
-	file.open(name, std::ios::out);
-	exportData(file);
-	file.close();
+	for (int j = 0; j < NT; ++j)
+	{
+		file.open(std::to_string(j*dt), std::ios::out);
+		for (int i = 0; i < NX; ++i)
+		{
+			file << boundingRect->getSize()[0][0] + i * h << "\t" << u[j][i] << "\t" << std::endl;;
+		}
+		file.close();
+	}
 }
 
 double Solver::uf(const int &i)

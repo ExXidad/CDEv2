@@ -63,7 +63,7 @@ public:
 
 	void exportData(std::fstream &file);
 
-	void save(const std::string &name);
+	void save();
 };
 
 

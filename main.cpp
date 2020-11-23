@@ -27,6 +27,6 @@ int main()
 	Solver solver(boundingRect, 0.05, 1, 0.1, 0.1);
 	solver.solve(ICF2, MC);
 
-	solver.save("data");
+	solver.save();
 	return 0;
 }
